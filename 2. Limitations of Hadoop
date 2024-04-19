@@ -1,0 +1,36 @@
+Limitations of Hadoop :-
+
+Apache Hadoop is one of the most widely used frameworks for distributed computing. The following two sections tries to reason out the need for Apache Spark, when a framework like Hadoop already exist, and also how is it a better choice than Hadoop for distributed computing. 
+
+Relationship between Hadoop and Spark
+Below is shown the main parts of Hadoop ecosystem.
+
+Hadoop is made up two main parts -
+HDFS - for storage and retrieval of data in a distributed system
+MapReduce - for processing the data present in the distributed system.
+
+In Hadoop, MapReduce is the processing framework. So, if we were to write a program to compute something the processing would be done using MapReduce.
+
+Apache Spark is also a framework for processing the data, like MapReduce. In many real-time use-cases, Hadoop and Spark co-exist together, where HDFS is used for storage of data in distributed systems, and Spark is used for processing those distributed data. So, when we compare Hadoop and Spark, we are actually comparing the performance between MapReduce and Spark.
+
+Here are some of the shortcomings of Hadoop(MapReduce) in comparison to Spark
+
+High Latency
+MapReduce can handle large amount of data stored in a distributed manner. However, because MapReduce is a framework for batch processing it cannot handle a continuous stream of data efficiently. Whenever it does, it has a very high latency.
+
+Architecture
+In production environments different operations on data are performed, like ingestion of data, performing ETL operations on the ingested data, performing predictive analytics, etc. For this, Hadoop requires separate frameworks like:
+
+Hive - to query data using SQL like interface
+
+Sqoop - to access data in relational database
+
+Mahout - to perform Machine Learning operations
+
+We will soon see how Spark has a unified platform to achieve all of these operations.
+
+Processing
+Hadoop's distributed architecture is capable of storing terabytes and petabytes of data and process the same using map reduce algorithms. Map Reduce is not well optimized for iterative operations. So, algorithms that have thousands of iterations would turn out to be extremely slow. Sometimes, advanced machine algorithms takes several hours, or even days for completion
+
+Ease of Use
+MapReduce (processing engine of Hadoop) programming is more challenging compared to programming with Spark
