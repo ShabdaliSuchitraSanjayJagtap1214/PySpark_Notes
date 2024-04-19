@@ -5,3 +5,17 @@ In centralized systems, all the data is stored and processed in a single server.
 
 Distributed Systems :-
 It has been estimated that the digital data will increase by 30 times in the next 10 years. There needs to be a system which can store and process such huge amount of data. That's when distributed systems came into the picture, where the huge amount of data is split across multiple systems, and processed in a distributed manner. This is called distributed computing and Apache Spark is one of the open-source frameworks for distributed computing. It is fast, easy to use framework to solve machine learning, artificial intelligence and other analytical use cases for semi-structured, structured, and streaming data. It also has become one of the largest open source communities in big data with more than 1,000 contributors from more than 250 organizations.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
