@@ -1,5 +1,0 @@
-To read CSV File in Pandas :-
-
-import pandas as pd
-pd.read_csv('test1.csv')
-
