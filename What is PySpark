@@ -1,5 +1,8 @@
 What is PySpark :-
 
 Defination :-
-    (i) Pyspark is the Python API to use Spark.
-    (ii) It is used to perform Big Data Processing Tasks.
+    (i) PySpark is an Apache Spark library written in Python to run Python applications using Apache Spark capabilities.
+    (ii) Using PySpark we can run applications parallelly on the distributed cluster (multiple nodes).
+    (iii) In other words, PySpark is a Python API which is an analytical processing engine for large-scale powerful distributed data 
+          processing and machine learning applications.
+    (iv) It is used to perform Big Data Processing Tasks.
