@@ -1,0 +1,11 @@
+Resilient Distributed Dataset (RDD) :-
+
+Resilient Distributed Dataset (RDD) is the fundamental data structure of Spark.
+
+* They are immutable Distributed collections of objects of any type.
+
+* They are a distributed collection of objects, which are stored in memory or on disks of different machines of a cluster
+
+* A single RDD can be divided into multiple logical partitions so that these partitions can be stored and processed on different
+
+* RDDs are the main logical data units in Spark
