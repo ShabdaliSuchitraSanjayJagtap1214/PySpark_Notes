@@ -3,4 +3,13 @@ What is Apache Spark :-
 Defination :-
     (i) Apache Spark is an Open Source Distributed Data Processing Engine written in Scala providing a unified API and 
         Distributed Data Sets to users for both batch and streaming processing.
-  
+    (ii) It is also a multi-language engine, that provides APIs (Application Programming Interfaces) and libraries for several programming 
+         languages like Java, Scala, Python, and R, allowing developers to work with Spark using the language they are most comfortable with.
+          a. Scala: Spark’s primary and native language is Scala. Many of Spark’s core components are written in Scala, and it provides the 
+                    most extensive API for Spark.
+          b. Java: Spark provides a Java API that allows developers to use Spark within Java applications. Java developers can access most 
+                   of Spark’s functionality through this API.
+          c. Python: Spark offers a Python API, called PySpark, which is popular among data scientists and developers who prefer Python for 
+                     data analysis and machine learning tasks. PySpark provides a Pythonic way to interact with Spark.
+          d. R: Spark also offers an R API, enabling R users to work with Spark data and perform distributed data analysis using their 
+                familiar R language.
