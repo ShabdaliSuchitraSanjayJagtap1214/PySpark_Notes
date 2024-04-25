@@ -1,1 +1,37 @@
+Video 2. Create Dataframe Manually :-
 
+1. If you want to start the spark session :-
+      from pyspark.sql import SparkSession
+      spark=SparkSession.builder.appName('Dataframe').getOrCreate()
+2. type() Function :- This function will know the Datatype of any value or data.
+      eg :- type('abcd')
+3. dir() Function :-  This function give you all the list of all Attributes or Properties and Methods or Functions available on top of that objects.
+      eg :- dir(spark)
+4. help() Function :- This function help us how we can write a any syntax.
+      eg :- help(spark.createDataFrame)
+5. show() Function :- This function is used to display the output.
+      eg :- df.show()
+6. spark.createDataFrame() Function :- Creating Dataframe with the help of List and Column Name
+      eg :- data = [(1,'Shabdali'),(2,'Jagtap')]
+            df = spark.createDataFrame(data=data,schema=['id','name'])
+            df.show()
+7. printSchema() Function :- This function is used to get Schema of this Dataframe or Schema of the Table and we get Datatype of id is Long.
+      eg :- data = [(1,'Shabdali'),(2,'Jagtap')]
+            df = spark.createDataFrame(data=data,schema=['id','name'])
+            df.show()
+            df.printSchema()
+
+8. StructType() Function :- Creating Dataframe with the help of List and Column Name and to convert id Datatype from Long to Integer.
+      eg :- data = [(1,'Shabdali'),(2,'Jagtap')]
+            schema = StructType([StructField(name='id',dataType=IntegerType()),
+                                 StructField(name='name',dataType=StringType())])
+            df = spark.createDataFrame(data=data,schema=schema)
+            df.show()
+            df.printSchema()
+
+8. Creating Dataframe with the help of Dictionary and we get Datatype of id is Long.
+      eg :- Data = [{'id':1, 'name':'Shabdali'},
+                    {'id':2, 'name':'Sanjay'}]
+            df = spark.createDataFrame(data=data)
+            df.show()
+            df.printSchema()
