@@ -9,7 +9,7 @@ Video 2. Create Dataframe Manually :-
       eg :- dir(spark)
 4. help() Function :- This function help us how we can write a any syntax.
       eg :- help(spark.createDataFrame)
-5. show() Function :- This function is used to display the output.
+5. show() Function :- This function is used to display the output in table form.
       eg :- df.show()
 6. spark.createDataFrame() Function :- Creating Dataframe with the help of List and Column Name
       eg :- data = [(1,'Shabdali'),(2,'Jagtap')]
@@ -35,3 +35,59 @@ Video 2. Create Dataframe Manually :-
             df = spark.createDataFrame(data=data)
             df.show()
             df.printSchema()
+
+
+Video 3. Read CSV File in to Dataframe :-
+
+1. help() Function :- This function help us how we can write a any syntax.
+      eg :- help(spark)
+      eg :- help(spark.read)
+2. show() Function :- This function is used to display the output in table form.
+      eg :- df.show()
+3. display() Function :- This function is used to display the output in dataframe form.
+      eg :- display(df)
+4. Reading Single CSV File and Getting wrong Header
+      eg :- df = spark.read.csv(path=r'C:\Users\progr\AFTP\PySpark\test1.csv')
+            df.show()
+            display(df)
+            df.printSchema()
+5. Reading Single CSV File and Getting correct Header
+      eg :- df = spark.read.csv(path=r'C:\Users\progr\AFTP\PySpark\test1.csv',header=True)
+            df.show()
+            display(df)
+            df.printSchema()
+6. Another way Reading Single CSV File and Getting correct Header
+      eg :- df = spark.read.format('csv').option(key='header',value=True).load(path=r'C:\Users\progr\AFTP\PySpark\test1.csv')
+            df.show()
+            display(df)
+            df.printSchema()
+7. help() Function :- This function help us how we can write a any syntax.
+      eg :- help(spark.read.csv) -: We get various parameter here that we can use as we had used Header.
+8. Reading Multiple CSV File from Same Path/Location and Getting correct Header
+      eg :- df = spark.read.csv(path=[r'C:\Users\progr\AFTP\csv_folder\test1.csv',r'C:\Users\progr\AFTP\PySpark\csv_folder\test2.csv'],header=True)
+            df.show()
+            display(df)
+            df.printSchema()
+9. Reading Multiple CSV File from different Path/Location and Getting correct Header
+      eg :- df = spark.read.csv(path=r'C:\Users\progr\AFTP\PySpark\csv_folder\',header=True)
+            df.show()
+            display(df)
+            df.printSchema()
+7. help() Function :- This function help us how we can write a any syntax.
+      eg :- help(StructType)
+8. StructType() Function :- This function is used to convert one Datatype to another Datatype.
+      eg :- from pyspark.sql.types import *
+            schema = StructType().add(field='Name',data_type=StringType())\
+                                 .add(field='age',data_type=IntegerType())
+            df = spark.read.csv(path=r'C:\Users\progr\AFTP\csv_folder\test1.csv',schema=schema,header=True)
+            df.show()
+            display(df)
+            df.printSchema()
+
+
+
+
+
+
+
+
