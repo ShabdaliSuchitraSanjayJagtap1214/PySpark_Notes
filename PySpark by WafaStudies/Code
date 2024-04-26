@@ -1,6 +1,6 @@
 Video 2. Create Dataframe Manually :-
 
-1. If you want to start the spark session :-
+1.  If you want to import everything from this library and start the spark session :-
       from pyspark.sql import SparkSession
       spark=SparkSession.builder.appName('Dataframe').getOrCreate()
 2. type() Function :- This function will know the Datatype of any value or data.
@@ -29,7 +29,7 @@ Video 2. Create Dataframe Manually :-
             df.show()
             df.printSchema()
 
-8. Creating Dataframe with the help of Dictionary and we get Datatype of id is Long.
+9. Creating Dataframe with the help of Dictionary and we get Datatype of id is Long.
       eg :- Data = [{'id':1, 'name':'Shabdali'},
                     {'id':2, 'name':'Sanjay'}]
             df = spark.createDataFrame(data=data)
@@ -73,9 +73,9 @@ Video 3. Read CSV File in to Dataframe :-
             df.show()
             display(df)
             df.printSchema()
-7. help() Function :- This function help us how we can write a any syntax.
+10. help() Function :- This function help us how we can write a any syntax.
       eg :- help(StructType)
-8. StructType() Function :- This function is used to convert one Datatype to another Datatype.
+11. StructType() Function :- This function is used to convert one Datatype to another Datatype.
       eg :- from pyspark.sql.types import *
             schema = StructType().add(field='Name',data_type=StringType())\
                                  .add(field='age',data_type=IntegerType())
@@ -85,7 +85,40 @@ Video 3. Read CSV File in to Dataframe :-
             df.printSchema()
 
 
+Video 4. Write Dataframe into CSV File using PySpark :-
 
+1. If you want to import everything from this library and start the spark session :-
+      from pyspark.sql import *
+2. help() Function :- This function help us how we can write a any syntax.
+      eg :- help(DataFrameWriter)
+3. help() Function :- This function help us how we can write a any syntax.
+      eg :- help(DataFrame.write) / help(dataframe.DataFrame.write) 
+4. spark.createDataFrame() Function :- Creating Dataframe with the help of List and Column Name
+      eg :- data = [(1,'Shabdali'),(2,'Sanjay')]
+            schema = ['id','name']
+            df = spark.createDataFrame(data = data, schema = schema)
+            display(df)
+            df.show()
+5. type() Function :- This function will know the Datatype of any value or data.
+      eg :- type(df.write)
+6. help() Function :- This function help us how we can write a any syntax.
+      eg :- help(df.write)
+7. help() Function :- This function help us how we can write a any syntax.
+      eg :- help(df.write.csv)
+8. We Write Dataframe into CSV File in that given location and will create Folder in the given location and if same folder is there in that path than it will write in that folder without creating.
+      eg :- df.write.csv(path=r'C:\Users\progr\AFTP\PySpark\CSV\Test3',header=True)
+9. This Read Function is used to read that Dataframe.
+      eg :- display(spark.read.csv(path=r'C:\Users\progr\AFTP\PySpark\CSV\Test3',header=True))
+10. By using Mode the error will pop up if file is already exits.
+      eg :- df.write.csv(path=r'C:\Users\progr\AFTP\PySpark\CSV\Test3',header=True,mode='error')
+11. By using Mode the error will pop up if file is already exits and we want to ignore error than used mode function.
+      eg :- df.write.csv(path=r'C:\Users\progr\AFTP\PySpark\CSV\Test3',header=True,mode='ignore')
+12. By using Mode we can Append/Add on existing data. So Multiple time we run this command than data will add again and again.
+      eg :- df.write.csv(path=r'C:\Users\progr\AFTP\PySpark\CSV\Test3',header=True,mode='append')
+13. By using Mode we can overwrite on existing data.
+      eg :- df.write.csv(path=r'C:\Users\progr\AFTP\PySpark\CSV\Test3',header=True,mode='overwrite')
+            # To read data again to check that data is overwrite or not and this Read Function is used to read that Dataframe.
+            display(spark.read.csv(path=r'C:\Users\progr\AFTP\PySpark\CSV\Test3',header=True))
 
 
 
