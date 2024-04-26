@@ -121,6 +121,21 @@ Video 4. Write Dataframe into CSV File using PySpark :-
             display(spark.read.csv(path=r'C:\Users\progr\AFTP\PySpark\CSV\Test3',header=True))
 
 
+Video 5. Read JSON File into Dataframe
+
+1. help() Function :- This function help us how we can write a any syntax.
+      eg :- help(spark.read)
+2. help() Function :- This function help us how we can write a any syntax.
+      eg :- help(spark.read.json)
+3. printSchema() Function :- This function is used to get Schema of this Dataframe or Schema of the Table and we get Datatype of id is Long.
+      eg :- df.printSchema()
+4. Reading JSON File 
+      eg :- df = spark.read.json(path=r'C:\Users\progr\AFTP\PySpark\JSONFile.json')
+            df.printSchema()
+            df.show()
+
+
+
 
 
 
