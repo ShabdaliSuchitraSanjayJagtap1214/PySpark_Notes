@@ -133,7 +133,7 @@ Video 5. Read JSON File into Dataframe
       eg :- df = spark.read.json(path=r'C:\Users\progr\AFTP\PySpark\csv_json_folder_1\JSONSingleLineFile1.json')
             df.printSchema()
             df.show()
-5.  Reading MultiLine JSON File/Dataframe from same File Path/Location and We had used MultiLine Function.
+5. Reading MultiLine JSON File/Dataframe from same File Path/Location and We had used MultiLine Function.
       eg :- df = spark.read.json(path=r'C:\Users\progr\AFTP\PySpark\csv_json_folder_1\JSONSingleLineFile1.json',multiLine=True)
             df.printSchema()
             df.show()
@@ -160,4 +160,37 @@ Video 5. Read JSON File into Dataframe
                      df = spark.read.json(path=r'C:\Users\progr\AFTP\PySpark\csv_json_folder_1\JSONSingleLineFile1.json', schema=schema)
                      df.printSchema()
                      df.show()
+
+
+Video 6. Write Dataframe into JSON File using PySpark
+            -> Use the DataFrameWriter object to write PySpark DataFrame to a JSON File. 
+
+1. Creating Dataframe with the help of List and Column Name and we get Datatype of id is Long.
+      eg :- data = [(1,'Shabdali'),(2,'Sanjay')]
+            schema = ['id','name']
+            df = spark.createDataFrame(data=data,schema=schema)
+            display(df)
+            df.show()
+
+2. help() Function :- This function help us how we can write a any syntax.
+      eg :- help(df.write)
+
+3. We Write Dataframe into CSV File in that given location and will create Folder in the given location and if same folder is there in that path than it will write in that folder without creating.
+   In this Data will store as a Part Files.
+      eg :- df.write.json(r'C:\Users\progr\AFTP\PySpark\jsondata\emps.json')
+                                    or
+            df.write.json(r'C:\Users\progr\AFTP\PySpark\jsondata\emps')
+4. This Read Function is used to read that Dataframe in JSON File.
+      eg :- display(spark.read.json(r'C:\Users\progr\AFTP\PySpark\jsondata\emps'))
+5. By using Mode the error will pop up if file is already exits.
+      eg :- df.write.json(r'C:\Users\progr\AFTP\PySpark\jsondata\emps',mode='error')
+6. By using Mode the error will pop up if file is already exits and we want to ignore error than used mode function.
+      eg :- df.write.json(r'C:\Users\progr\AFTP\PySpark\jsondata\emps',mode='ignore')
+7. By using Mode we can Append/Add on existing data. So Multiple time we run this command than data will add again and again.
+      eg :- df.write.json(r'C:\Users\progr\AFTP\PySpark\jsondata\emps',mode='append')
+8. By using Mode we can overwrite on existing data.
+      eg :- df.write.json(r'C:\Users\progr\AFTP\PySpark\jsondata\emps',mode='overwrite')
+            # To read data again to check that data is overwrite or not and this Read Function is used to read that Dataframe.
+            display(spark.read.json(r'C:\Users\progr\AFTP\PySpark\jsondata\emps'))
+
 
