@@ -9,7 +9,7 @@ Video 2. Create Dataframe Manually :-
       eg :- dir(spark)
 4. help() Function :- This function help us how we can write a any syntax.
       eg :- help(spark.createDataFrame)
-5. show() Function :- This function is used to display the output in table form.
+5. show() Function :- This function is used to display the output in table form and show Max 20 Characters and will show Max 20 Rows Only.
       eg :- df.show()
 6. spark.createDataFrame() Function :- Creating Dataframe with the help of List and Column Name
       eg :- data = [(1,'Shabdali'),(2,'Jagtap')]
@@ -42,7 +42,7 @@ Video 3. Read CSV File in to Dataframe :-
 1. help() Function :- This function help us how we can write a any syntax.
       eg :- help(spark)
       eg :- help(spark.read)
-2. show() Function :- This function is used to display the output in table form.
+2. show() Function :- This function is used to display the output in table form and show Max 20 Characters and will show Max 20 Rows Only.
       eg :- df.show()
 3. display() Function :- This function is used to display the output in dataframe form.
       eg :- display(df)
@@ -248,9 +248,19 @@ Video 8. Write Dataframe into Parquet File using PySpark
       eg :- df.write.parquet(r'C:\Users\progr\AFTP\PySpark\parquet_folder/parquetoutput',mode='overwrite')
 
 
+Video 9. show() in PySpark to display Dataframe contents in Table 
+            -> show() is used to display contents in Table.
 
-
-
+1. show() Function :- This function is used to display the output in table form and show Max 20 Characters and will show Max 20 Rows Only.
+      eg :- data = [(1,'hdadjsdjshdjshdjskndndsm'),
+                    (2,'kjsdhasg hdajsd ashjds hdghgd'),
+                    (3,'sjdjsghdgdajkdsjmndms'),
+                    (4,'ksdkjskdkjksdk')]
+            schema = ['id','comments']
+            df = spark.createDataFrame(data=data,schema=schema)
+            df.show()
+2. help() Function :- This function help us how we can write a any syntax.
+      eg :- help(df.show)
 
 
 
