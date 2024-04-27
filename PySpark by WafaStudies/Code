@@ -129,13 +129,35 @@ Video 5. Read JSON File into Dataframe
       eg :- help(spark.read.json)
 3. printSchema() Function :- This function is used to get Schema of this Dataframe or Schema of the Table and we get Datatype of id is Long.
       eg :- df.printSchema()
-4. Reading JSON File 
-      eg :- df = spark.read.json(path=r'C:\Users\progr\AFTP\PySpark\JSONFile.json')
+4. Reading SingleLine JSON File/Dataframe from same File Path/Location.
+      eg :- df = spark.read.json(path=r'C:\Users\progr\AFTP\PySpark\csv_json_folder_1\JSONSingleLineFile1.json')
             df.printSchema()
             df.show()
-
-
-
-
-
+5.  Reading MultiLine JSON File/Dataframe from same File Path/Location and We had used MultiLine Function.
+      eg :- df = spark.read.json(path=r'C:\Users\progr\AFTP\PySpark\csv_json_folder_1\JSONSingleLineFile1.json',multiLine=True)
+            df.printSchema()
+            df.show()
+6. Reading SingleLine JSON File/Dataframe from Different File Path/Location.
+      eg :- df = spark.read.json(path=[r'C:\Users\progr\AFTP\PySpark\csv_json_folder_1\JSONSingleLineFile1.json',
+                                       r'C:\Users\progr\AFTP\PySpark\csv_json_folder_2\JSONSingleLineFile2.json'])
+            df.printSchema()
+            df.show()
+7. Reading MultiLine JSON File/Dataframe from Different File Path/Location.
+      eg :- df = spark.read.json(path=[r'C:\Users\progr\AFTP\PySpark\csv_json_folder_1\JSONMultiLineFile1.json',
+                           r'C:\Users\progr\AFTP\PySpark\csv_json_folder_2\JSONMultiLineFile2.json',multiLine=True])
+            df.printSchema()
+            df.show()
+8. Reading 2 or more SingleLine JSON File/Dataframe from same File Path/Location with the help of *.
+      eg :- df = spark.read.json(path=r'C:\Users\progr\AFTP\PySpark\csv_json_folder_3\*.json')
+            df.printSchema()
+            df.show()
+9. Reading SingleLine JSON File/Dataframe from same File Path/Location and Convert Datatype from String to Integer.
+      eg :- from pyspark.sql import *
+            schema = StructType().add(field='id',data_type=IntegerType())\
+                                 .add(field='name',data_type=StringType())\
+                                 .add(field='gender',data_type=StringType())\
+                                 .add(field='salary',data_type=IntegerType())
+                     df = spark.read.json(path=r'C:\Users\progr\AFTP\PySpark\csv_json_folder_1\JSONSingleLineFile1.json', schema=schema)
+                     df.printSchema()
+                     df.show()
 
