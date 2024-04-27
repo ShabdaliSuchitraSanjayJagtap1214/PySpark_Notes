@@ -218,8 +218,34 @@ Video 7. Read Parquet File into Dataframe using PySpark
             print('Count of Recordes in Dataframe is ' + str (df.count()))
 
 
+Video 8. Write Dataframe into Parquet File using PySpark
+            -> Use the DataFrameWriter object to write PySpark DataFrame to a Parquet File.
 
-
+1. Creating Dataframe with the help of List and Column Name and we get Datatype of id is Long.
+      eg :- data = [(1,'Shabdali'),(2,'Sanjay')]
+            schema = ['id','name']
+            df = spark.createDataFrame(data=data,schema=schema)
+            display(df)
+            df.show()
+2. help() Function :- This function help us how we can write a any syntax.
+      eg :- help(df.write)
+3. We Write Dataframe into Parquet File in that given location and will create Folder in the given location and if same folder is there in that path than it will write in that folder without creating.
+   In this Data will store as a Part Files
+      eg :- df.write.parquet(r'C:\Users\progr\AFTP\PySpark\parquet_folder/parquetoutput.parquet')
+4. Another wayt to Write Dataframe into Parquet File in that given location and will create Folder in the given location and if same folder is there in that path than it will write in that folder without creating.
+   In this Data will store as a Part Files
+      eg :- df.write.parquet(r'C:\Users\progr\AFTP\PySpark\parquet_folder/parquetoutput')
+            # This Read Function is used to read that Dataframe in JSON File.
+            df1 = spark.read.parquet(r'C:\Users\progr\AFTP\PySpark\parquet_folder/parquetoutput')
+            display(df1)
+5. By using Mode the error will pop up if file is already exits.
+      eg :- df.write.parquet(r'C:\Users\progr\AFTP\PySpark\parquet_folder/parquetoutput',mode='error')
+6. By using Mode the error will pop up if file is already exits and we want to ignore error than used mode function.
+      eg :- df.write.parquet(r'C:\Users\progr\AFTP\PySpark\parquet_folder/parquetoutput',mode='ignore')
+7. By using Mode we can Append/Add on existing data. So Multiple time we run this command than data will add again and again.
+      eg :- df.write.parquet(r'C:\Users\progr\AFTP\PySpark\parquet_folder/parquetoutput',mode='append') 
+8. Byusing Mode we can overwrite on existing data.
+      eg :- df.write.parquet(r'C:\Users\progr\AFTP\PySpark\parquet_folder/parquetoutput',mode='overwrite')
 
 
 
