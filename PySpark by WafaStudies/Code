@@ -194,3 +194,39 @@ Video 6. Write Dataframe into JSON File using PySpark
             display(spark.read.json(r'C:\Users\progr\AFTP\PySpark\jsondata\emps'))
 
 
+Video 7. Read Parquet File into Dataframe using PySpark
+            -> Using read.parquet("path") or read.format("parquet").load("path") you can read a Parquet File into a PySpark Dataframe.
+
+1.  help() Function :- This function help us how we can write a any syntax.
+      eg :- help(spark.read.parquet)
+2. Reading Single Parquet File/Dataframe from same File Path/Location and used Count function to see how many records are there.
+      eg :- df = spark.read.parquet(r'C:\Users\progr\AFTP\PySpark\parquet_folder\userdata1.parquet')
+            display(df)
+            df.show()
+            print(df.count())
+3. Used Count function to see how many records are there in the file.
+      eg :- print(df.count())
+4. Reading Multiple Parquet File from Same Path/Location with the help of *.
+      eg :- df = spark.read.parquet(r'C:\Users\progr\AFTP\PySpark\parquet_folder\*.parquet')
+            display(df)
+            df.show()
+            print(df.count())
+5. Reading Multiple Parquet File from Same Path/Location where only Parquet file are prsent so no need of *.parquet 
+      eg :- df = spark.read.parquet(r'C:\Users\progr\AFTP\PySpark\parquet_folder\')
+            display(df)
+            df.show()
+            print('Count of Recordes in Dataframe is ' + str (df.count()))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
