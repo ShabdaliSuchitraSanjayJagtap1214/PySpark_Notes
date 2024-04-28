@@ -296,3 +296,71 @@ Video 9. show() in PySpark to display Dataframe contents in Table
             df.show(n=2, truncate=8, vertical=True)
 
 
+Video 10. withColumn() in PySpark will Add new column or Change existing column Data or Type in Dataframe.
+            -> PySpark withColumn() is a transformation function of DataFrame which is used to change the value, convert the datatype of an existing column, create a new column, and many more.
+
+1. Creating Dataframe with the help of List and Column Name and we get Datatype of id is Long.
+      eg :- data = [(1,'Shabdali','30000000'),(2,'Sanjay','10000000')]
+            columns = ['id','name','salary']
+            df = spark.createDataFrame(data=data,schema=columns)
+            display(df)
+            df.show()
+            df.printSchema()
+2. Display Functions 
+      eg :- display(df)
+      eg :- df.show()
+      eg :- df.printSchema()
+3. help() Function :- This function help us how we can write a any syntax.
+      eg :- help(df.withColumn)
+4. If you want to import col functions from this library :-
+      eg :- from pyspark.sql.functions import col
+      eg :- from pyspark.sql.functions import col,lit
+5. withColumn function will Add new column or Change existing column Data or Type in Dataframe.
+   We import col
+   We want to change Datatype of Salary column from String to Integer and change will store in new Dataframe or you can save into same Dataframe also.
+      eg :- from pyspark.sql.functions import col
+            data = [(1,'Shabdali','30000000'),(2,'Sanjay','10000000')]
+            columns = ['id','name','salary']
+            df = spark.createDataFrame(data=data,schema=columns)
+            df1 = df.withColumn(colName='salary',col=col('salary').cast('Integer'))
+            display(df1)
+            df1.show()
+            df1.printSchema()
+6. withColumn function will Add new column or Change existing column Data or Type in Dataframe.
+   We import col
+   We want to change Data of Salary column from 3000*2 = 6000 & 4000*2 = 8000 and change will update on all column and change will store in new Dataframe or you can save into same Dataframe also.
+      eg :- from pyspark.sql.functions import col
+            data = [(1,'Shabdali','30000000'),(2,'Sanjay','10000000')]
+            columns = ['id','name','salary']
+            df = spark.createDataFrame(data=data,schema=columns)
+            df2 = df1.withColumn('salary',col('salary') * 2)
+            display(df2)
+            df2.show()
+            df2.printSchema()
+7. withColumn function will Add new column or Change existing column Data or Type in Dataframe.
+   We import col,lit  
+   It will check first column is there in that table or not if column is not there than it will create new column otherwise if column is exists it will make changes in existing column.
+   country column will create and india will add as a records in country column.
+      eg :- from pyspark.sql.functions import col,lit
+            data = [(1,'Shabdali','30000000'),(2,'Sanjay','10000000')]
+            columns = ['id','name','salary']
+            df = spark.createDataFrame(data=data,schema=columns)
+            df3 = df2.withColumn('country',lit('india'))
+            display(df3)
+            df3.show()
+            df3.printSchema()
+8. withColumn function will Add new column or Change existing column Data or Type in Dataframe.
+   We import col,lit  
+   New column is create with the copy/same of records/data from existing column.
+      eg :- from pyspark.sql.functions import col,lit
+            data = [(1,'Shabdali','30000000'),(2,'Sanjay','10000000')]
+            columns = ['id','name','salary']
+            df = spark.createDataFrame(data=data,schema=columns)
+            df4 = df3.withColumn('copiedSalary',col('salary'))
+            display(df4)
+            df4.show()
+            df4.printSchema()
+
+
+
+
