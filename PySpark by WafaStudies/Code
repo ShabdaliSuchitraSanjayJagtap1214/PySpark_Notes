@@ -261,8 +261,38 @@ Video 9. show() in PySpark to display Dataframe contents in Table
             df.show()
 2. help() Function :- This function help us how we can write a any syntax.
       eg :- help(df.show)
-
-
-
+3. This show function is used to display the output in table form and with the help of truncate function than it will show All Characters.
+      eg :- data = [(1,'hdadjsdjshdjshdjskndndsm'),
+                    (2,'kjsdhasg hdajsd ashjds hdghgd'),
+                    (3,'sjdjsghdgdajkdsjmndms'),
+                    (4,'ksdkjskdkjksdk')]
+            schema = ['id','comments']
+            df = spark.createDataFrame(data=data,schema=schema)
+            df.show(truncate=False)
+4. This show function is used to display the output in table form and with the help of truncate function we can show only 8 Characters.
+      eg :- data = [(1,'hdadjsdjshdjshdjskndndsm'),
+                    (2,'kjsdhasg hdajsd ashjds hdghgd'),
+                    (3,'sjdjsghdgdajkdsjmndms'),
+                    (4,'ksdkjskdkjksdk')]
+            schema = ['id','comments']
+            df = spark.createDataFrame(data=data,schema=schema)
+            df.show(truncate=8)
+5. This show function is used to display the output in table form and with the help of truncate function we can show only 8 Characters and with the help of n function we can show only 2 Rows.
+      eg :- data = [(1,'hdadjsdjshdjshdjskndndsm'),
+                    (2,'kjsdhasg hdajsd ashjds hdghgd'),
+                    (3,'sjdjsghdgdajkdsjmndms'),
+                    (4,'ksdkjskdkjksdk')]
+            schema = ['id','comments']
+            df = spark.createDataFrame(data=data,schema=schema)
+            df.show(n=2,truncate=8)
+6. This show function is used to display the output in table form and with the help of truncate function we can show only 8 Characters and with the help of n function we can show only 2 Rows.
+   If we want to show Data in Vertical Manner by using Vertical function.
+      eg :- data = [(1,'hdadjsdjshdjshdjskndndsm'),
+                    (2,'kjsdhasg hdajsd ashjds hdghgd'),
+                    (3,'sjdjsghdgdajkdsjmndms'),
+                    (4,'ksdkjskdkjksdk')]
+            schema = ['id','comments']
+            df = spark.createDataFrame(data=data,schema=schema)
+            df.show(n=2, truncate=8, vertical=True)
 
 
