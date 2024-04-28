@@ -78,6 +78,7 @@ Videp 12. StructType() and StructField() in PySpark
             df.show()
 
 
+Video 13. ArrayType Columns in PySpark
 
 
 
