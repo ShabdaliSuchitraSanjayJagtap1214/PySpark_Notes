@@ -122,13 +122,54 @@ Video 13. ArrayType Columns in PySpark
             display(df1)
             df1.printSchema()
             df1.show()
-7. If you want to import col,array from this library.
+7. If you want to import col,array from the library.
       eg :- from pyspark.sql.functions import col,array
 
 
+Video 14. explode(), split(), array() & array_contains() functions in PySpark
+              -> explode() is a function to create a new row for each element in the given array column.
+              -> split() is sql function returns an array type after splitting the string column by delimiter.
+              -> array() is function to create a new array column by merging the data from multiple columns.
 
-
-
-
-
+1. Creating Dataframe having 3 columns and skill column has 2 elements like shabdali has python a 2 elements like python and azure and same for sanjay.
+      eg :- data = [(1,'shabdali',['python','azure']),(2,'sanjay',['java','aws'])]
+            schema = ['id','name','skills']
+            df = spark.createDataFrame(data,schema)
+            display(df)
+            df.printSchema()
+            df.show()
+2. If you want to import explode,col from the library.
+      eg :- from pyspark.sql.functions import explode,col
+3. Creating Dataframe having 3 columns and skill column has 2 elements like shabdali has python a 2 elements like python and azure and same for sanjay.
+   We want elements should be called seperatly in new rows like 1st row shabdali python 2nd row shabdali azure and so on. Then we need explode function.
+   explode is a function to create a new row for each element in the given array column.
+      eg :- from pyspark.sql.functions import explode,col
+            data = [(1,'shabdali',['python','azure']),(2,'sanjay',['java','aws'])]
+            schema = ['id','name','skills']
+            df = spark.createDataFrame(data,schema)
+            df1 = df.withColumn('SkillExplode',explode(col('skills'))) 
+            display(df1)
+            df1.printSchema()
+            df1.show()
+4. In the output the python and azure is same column and not in array/list fashion [].
+   We have to splite the element which are seperated by ',' in new dataframe and in new column and store in array/list fashion [] so it will done by splite function.
+      eg :- data = [(1,'shabdali','python,azure'),(2,'sanjay','java,aws')]
+            schema = ['id','name','skills']
+            df = spark.createDataFrame(data,schema)
+            display(df)
+            df.printSchema()
+            df.show()
+5. If you want to import col,array from the library.
+      eg :- from pyspark.sql.functions import split,col
+6. We have to splite the element which are seperated by ',' in new dataframe and in new column and store in array/list fashion [] so it will done by splite function.
+   split() is sql function returns an array type after splitting the string column by delimiter.
+   Records are in array/list fashion [].
+      eg :- from pyspark.sql.functions import split,col
+            data = [(1,'shabdali','python,azure'),(2,'sanjay','java,aws')]
+            schema = ['id','name','skills']
+            df = spark.createDataFrame(data,schema)
+            df1 = df.withColumn('skillsSplit',split(col('skills'),',')) 
+            display(df1)
+            df1.printSchema()
+            df1.show()
 
