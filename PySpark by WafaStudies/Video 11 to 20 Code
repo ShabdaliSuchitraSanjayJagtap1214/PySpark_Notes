@@ -122,6 +122,9 @@ Video 13. ArrayType Columns in PySpark
             display(df1)
             df1.printSchema()
             df1.show()
+7. If you want to import col,array from this library.
+      eg :- from pyspark.sql.functions import col,array
+
 
 
 
