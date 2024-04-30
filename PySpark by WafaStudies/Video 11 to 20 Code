@@ -159,7 +159,7 @@ Video 14. explode(), split(), array() & array_contains() functions in PySpark
             display(df)
             df.printSchema()
             df.show()
-5. If you want to import col,array from the library.
+5. If you want to import split,col from the library.
       eg :- from pyspark.sql.functions import split,col
 6. We have to splite the element which are seperated by ',' in new dataframe and in new column and store in array/list fashion [] so it will done by splite function.
    split() is sql function returns an array type after splitting the string column by delimiter.
@@ -172,4 +172,50 @@ Video 14. explode(), split(), array() & array_contains() functions in PySpark
             display(df1)
             df1.printSchema()
             df1.show()
+7. We dont get new column is form of Array Style.
+   If we want to create a new array column by merging the data from multiple columns that will done by using Array function.
+      eg :- data = [(1,'shabdali','python','azure'),(2,'sanjay','java','aws')]
+            schema = ['id','name','primarySkills','secondarySkills']
+            df = spark.createDataFrame(data,schema)
+            display(df)
+            df.printSchema()
+            df.show()
+8. We get new column name skillsArray and with combine data of to columns primarySkill and secondarySkill in the array/list formate.
+   array() is function to create a new array column by merging the data from multiple columns.
+      eg :- from pyspark.sql.functions import array,col
+            data = [(1,'shabdali','python','azure'),(2,'sanjay','java','aws')]
+            schema = ['id','name','primarySkill','secondarySkill']
+            df = spark.createDataFrame(data,schema)
+            df1 = df.withColumn('skillsArray',array(col('primarySkill'),col('secondarySkill'))) 
+            display(df1)
+            df1.printSchema()
+            df1.show()
+9. If you want to import array,col from the library.
+      eg :- from pyspark.sql.functions import array,col
+10. If we want to see who has Python skill set and want that data in new column and it will say True if the person has python skill set otherwise says False.
+    This will happend by using array_contains function.
+      eg :- data = [(1,'shabdali',['python','azure']),(2,'sanjay',['java','aws'])]
+            schema = ['id','name','skills']
+            df = spark.createDataFrame(data,schema)
+            display(df)
+            df.printSchema()
+            df.show()
+11. If we want to see who has Python skill set and want that data in new column and it will say True if the person has python skill set otherwise says False.
+    array_contains() is sql function is used to check if array column contains a value. Returns null if the array is null, true if the array contains the value, and false otherwise.
+      eg :- from pyspark.sql.functions import array_contains,col
+            data = [(1,'shabdali',['python','azure']),(2,'sanjay',['java','aws'])]
+            schema = ['id','name','skills']
+            df = spark.createDataFrame(data,schema)
+            df1 = df.withColumn('HasArray_ContainsPythonSkills',array_contains(col('skills'),'python')) 
+            display(df)
+            df.printSchema()
+            df.show()
+12. If you want to import array_contains,col from the library.
+      eg :- from pyspark.sql.functions import array_contains,col
+
+
+
+
+
+
 
