@@ -1,4 +1,4 @@
-Video 11. withColumnRenamed() usage in PySpark
+  Video 11. withColumnRenamed() usage in PySpark
                 -> PySpark withColumnRenamed() is a Transformation Function of Dataframe which is used to change existing column name in Dataframe.
 ​
 1. If you want to import everything from this library and start the spark session
@@ -214,8 +214,53 @@ Video 14. explode(), split(), array() & array_contains() functions in PySpark
       eg :- from pyspark.sql.functions import array_contains,col
 
 
+Video 15. MapType Column in PySpark
+                -> PySpark MapType is used to represent map key-value pair similar to python Dictionary (Dict).
 
-
-
-
-
+1. We make Dataframe in Dictionary {} formate. So createDataFrame detected that properties is map datatype. It gives Key Value Paire.
+   So datatype of Dictionary Data is Map.
+   We used truncate = False because we want to see all the Data.
+      eg :- data = [('shabdali',{'hair':'black','eye':'brown'}),('sanjay',{'hair':'brown','eye':'blue'})]
+            schema = ['name','properties']
+            df = spark.createDataFrame(data,schema)
+            display(df)
+            df.printSchema()
+            df.show(truncate=False)
+2. If you want to import StructType, StructField, StringType, MapType from the library.
+      eg :- from pyspark.sql.types import StructType, StructField, StringType, MapType
+3. help() Function :- This function help us how we can write a any syntax.
+      eg :- help(MapType)
+4. Same Example with the help of StructType, StructField.
+      eg :- from pyspark.sql.types import StructType, StructField, StringType, MapType
+            data = [('shabdali',{'hair':'black','eye':'brown'}),('sanjay',{'hair':'brown','eye':'blue'})]
+            schema = schema = StructType([\ StructField('name',StringType()),
+                                          \ StructField('properties',MapType(StringType(),StringType()))])
+            df = spark.createDataFrame(data,schema)
+            display(df)
+            df.printSchema()
+            # df.show()
+            df.show(truncate=False)
+5. How to Access MapType Elements 
+   We acess hire elements by creating new column with the help of withColumn function and access the elements in that new column name hair.
+       eg :- from pyspark.sql.types import StructType, StructField, StringType, MapType
+            data = [('shabdali',{'hair':'black','eye':'brown'}),('sanjay',{'hair':'brown','eye':'blue'})]
+            schema = schema = StructType([\ StructField('name',StringType()),
+                                          \ StructField('properties',MapType(StringType(),StringType()))])
+            df = spark.createDataFrame(data,schema)
+            df1 = df.withColumn('hire',df.properties['hair']) 
+            display(df1)
+            df1.printSchema()
+            df1.show(truncate=False)
+6. How to Access MapType Elements 
+   We acess hire elements by creating new column with the help of withColumn function and access the elements in that new column name hair.
+   Same as hair we can access eye elements also.
+   we can used any syntax df1 = df.withColumn('eye',df.properties['eye']) or df1 = df.withColumn('eye',df.properties.getItem['eye']) 
+      eg :- from pyspark.sql.types import StructType, StructField, StringType, MapType
+            data = [('shabdali',{'hair':'black','eye':'brown'}),('sanjay',{'hair':'brown','eye':'blue'})]
+            schema = schema = StructType([\ StructField('name',StringType()),
+                              \ StructField('properties',MapType(StringType(),StringType()))])
+            df = spark.createDataFrame(data,schema)
+            df1 = df.withColumn('eye',df.properties.getItem['eye']) 
+            display(df1)
+            df1.printSchema()
+            df1.show(truncate=False)
