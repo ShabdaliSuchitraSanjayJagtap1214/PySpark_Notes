@@ -309,3 +309,42 @@ Video 16. map_keys(), map_values() & explode() functions to work with MapType Co
             display(df1)
             df1.printSchema()
             df1.show(truncate=False)
+
+
+Video 17. Row() class in PySpark
+                -> pyspark.sql.Row which is represented as a record/row in DataFrame, one can create a Row object by using named arguments or create a custom Row like class.
+
+1. If you want to import Row from the library.
+      eg :- from pyspark.sql import Row
+2. help() Function :- This function help us how we can write a any syntax.
+      eg :- help(Row)
+3. We access/add 2 items together and will display together but both items should have same datatype that only it is possible.
+   Here we got an error because one item is in string and one is in integer form.
+      eg :- from pyspark.sql import Row
+            row = Row('shabdali',2000)
+            print(row[0] + ' ' + row[1])
+4. We access/add 2 items together and will display together but both items should have same datatype that only it is possible.
+   We convert integer datatype into string to access that items. We access the items with the help of indexs.
+      eg :- from pyspark.sql import Row
+            row = Row('shabdali',2000)
+            print(row[0] + ' ' + str(row[1]))
+5. We give names to each items. So we used names rather than index to acces the items. 
+   Got error different datatype. 
+      eg :- from pyspark.sql import Row
+            row = Row(name = 'shabdali',salary = 2000)
+            print(row.name + ' ' + row.salary)
+6. We give names to each items. So we used names rather than index to acces the items. 
+   Convert datatype and access items.
+      eg :- from pyspark.sql import Row
+            row = Row(name = 'shabdali',salary = 2000)
+            print(row.name + ' ' + str(row.salary)) 
+7. Access multiple rows dataframe.
+      eg :- from pyspark.sql import Row
+            row1 = Row(name = 'shabdali',salary = 20000000)
+            row2 = Row(name = 'sanjay',salary = 10000000)
+            data = [row1,row2]
+            df = spark.createDataFrame(data)
+            display(df)
+            df.printSchema()
+            df.show
+
