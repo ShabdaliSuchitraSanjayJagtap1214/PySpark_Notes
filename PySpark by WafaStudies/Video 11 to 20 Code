@@ -264,3 +264,48 @@ Video 15. MapType Column in PySpark
             display(df1)
             df1.printSchema()
             df1.show(truncate=False)
+
+
+Video 16. map_keys(), map_values() & explode() functions to work with MapType Columns in PySpark
+
+1. We make Dataframe in Dictionary {} formate.
+      eg :- from pyspark.sql.types import StructType, StructField, StringType, MapType
+            data = [('shabdali',{'hair':'black','eye':'brown'}),('sanjay',{'hair':'brown','eye':'blue'})]
+            schema = StructType([\ StructField('name',StringType()),
+                                 \ StructField('properties',MapType(StringType(),StringType()))])
+            df = spark.createDataFrame(data,schema)
+            display(df)
+            df.printSchema()
+            df.show(truncate=False)
+2. It will get 2 new column name key and value. key column holds all the keys and value holds all the values.
+      eg :- from pyspark.sql.functions import explode
+            data = [('shabdali',{'hair':'black','eye':'brown'}),('sanjay',{'hair':'brown','eye':'blue'})]
+            schema = StructType([\ StructField('name',StringType()),
+                                 \ StructField('properties',MapType(StringType(),StringType()))])
+            df = spark.createDataFrame(data,schema)  
+            df1 = df.select('name','properties',explode(df.properties))
+            display(df1)
+            df1.printSchema()
+            df1.show(truncate=False)
+3. If you want to import explode from the library.
+      eg :- from pyspark.sql.functions import explode
+4. It will create new column name keys and show all the keys in that perticular records.
+      eg :- from pyspark.sql.functions import map_keys
+            data = [('shabdali',{'hair':'black','eye':'brown'}),('sanjay',{'hair':'brown','eye':'blue'})]
+            schema = StructType([\ StructField('name',StringType()),
+                                 \ StructField('properties',MapType(StringType(),StringType()))])
+            df = spark.createDataFrame(data,schema)
+            df1 = df.withColumn('keys', map_keys(df.properties))
+            display(df1)
+            df1.printSchema()
+            df1.show(truncate=False)
+5. It will create new column name values and show all the values in that perticular records.
+      eg :- from pyspark.sql.functions import map_values
+            data = [('shabdali',{'hair':'black','eye':'brown'}),('sanjay',{'hair':'brown','eye':'blue'})]
+            schema = StructType([\ StructField('name',StringType()),
+                                 \ StructField('properties',MapType(StringType(),StringType()))])   
+            df = spark.createDataFrame(data,schema)
+            df1 = df.withColumn('values', map_values(df.properties))
+            display(df1)
+            df1.printSchema()
+            df1.show(truncate=False)
