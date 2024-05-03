@@ -372,3 +372,15 @@ Video 17. Row() class in PySpark
             df.printSchema()
             df.show()
 
+
+Video 18. Column class in PySpark
+                -> PySpark Column class represents a single Column in a DataFrame. pyspark.sql.
+                   Column class provides several functions to work with DataFrame to manipulate the Column values, evaluate the boolean                     expression to filter rows, retrieve a value or part of a value from a DataFrame column. 
+                   One of the simplest ways to create a Column class object is by using PySpark lit() SQL function.
+
+1. The col1 variable type is Column. So that means Lit function actually create one column.
+      eg :- from pyspark.sql.functions import lit
+            col1 = lit('abcd')
+            print(type(col1))
+2. If you want to import Row from the library.
+      eg :- from pyspark.sql.functions import lit
