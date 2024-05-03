@@ -346,5 +346,29 @@ Video 17. Row() class in PySpark
             df = spark.createDataFrame(data)
             display(df)
             df.printSchema()
-            df.show
+            df.show()
+8. This is happen because Person1 is a object of Person. Person has a property called name using this row class.
+      eg :- Person = Row('name','age')
+            Person1 = Person('Shandali','25')
+            Person2 = Person('Sanjay','100')
+            print(Person1.name)
+            print(Person1.age)
+            print(Person2.name)
+            print(Person1.age)
+9. We had create a Dataframe.
+      eg :- Person = Row('name','age')
+            Person1 = Person('Shandali','25')
+            Person2 = Person('Sanjay','100')
+            Persondf = spark.createDataFrame([Person1,Person2])
+            display(Persondf)
+            Persondf.printSchema()
+            Persondf.show()
+10. We want to see datatype of the prop column that is struct type.
+    We get 2 column that is name and prop.
+      eg :- data = [Row(name = 'Shabdali', prop = Row(age = 25, gender = 'female')),
+                  \ Row(name = 'Sarvesh', prop = Row(age = 24, gender = 'male'))]
+            df = spark.createDataFrame(data)
+            display(df)
+            df.printSchema()
+            df.show()
 
