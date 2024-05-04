@@ -384,3 +384,75 @@ Video 18. Column class in PySpark
             print(type(col1))
 2. If you want to import Row from the library.
       eg :- from pyspark.sql.functions import lit
+3. We created dataframe with 3 columns and 2 rows.
+      eg :- data = [('Shabdali','female',2000),('Sarvesh','male',4000)]
+            schema = ['name','gender','salary']
+            df = spark.createDataFrame(data,schema)
+            display(df)
+            df.printSchema()
+            df.show()
+4. Create new column name newCol and insert the data into that column with the help of lit function.
+      eg :- from pyspark.sql.functions import lit
+            data = [('Shabdali','female',2000),('Sarvesh','male',4000)]
+            schema = ['name','gender','salary']
+            df = spark.createDataFrame(data,schema)
+            df1 = df.withColumn('newCol',lit('newColVal'))
+            display(df1)
+            df1.printSchema()
+            df1.show()
+5. Access perticular column from dataframe with the help of select function. We get only name column and there records.
+      eg :- from pyspark.sql.functions import lit
+            data = [('Shabdali','female',2000),('Sarvesh','male',4000)]
+            schema = ['name','gender','salary']
+            df = spark.createDataFrame(data,schema)
+            df1 = df.withColumn('newCol',lit('newColVal'))
+            df1.select(df1.name).show()
+6. Another way Access perticular column from dataframe with the help of select function. We get only name column and there records.
+      eg :- from pyspark.sql.functions import lit
+            data = [('Shabdali','female',2000),('Sarvesh','male',4000)]
+            schema = ['name','gender','salary']
+            df = spark.createDataFrame(data,schema)
+            df1 = df.withColumn('newCol',lit('newColVal'))
+            df1.select(df1['name']).show()
+7. Another way Access perticular column from dataframe with the help of select function. We get only name column and there records.
+      eg :- from pyspark.sql.functions import lit, col
+            data = [('Shabdali','female',2000),('Sarvesh','male',4000)]
+            schema = ['name','gender','salary']
+            df = spark.createDataFrame(data,schema)
+            df1 = df.withColumn('newCol',lit('newColVal'))      
+            df1.select(col('name')).show()
+8. Another way Access perticular column from dataframe with the help of select function. We get only name column and there records.
+      eg :- from pyspark.sql.functions import lit, col
+            df1.select(col('name')).show()
+9. Created Nested Column with the help of StructType, StructField function.
+      eg :- from pyspark.sql.functions import lit
+            from pyspark.sql.types import StructType, StructField, StringType, IntegerType
+            data = [('Shabdali','female',20000000,('black','brown')),('Sarvesh','male',4000000,('black','blue'))]  
+            propertiesType = StructType([\ StructField('hair',StringType()),
+                                         \ StructField('eye',StringType())])
+            schema = StructType([ StructField('name',StringType()),
+                               \ StructField('gender',StringType()),
+                                \ StructField('salary',IntegerType()),
+                                 \ StructField('properties',propertiesType)])
+
+            df = spark.createDataFrame(data,schema)
+            display(df)
+            df.printSchema()
+            df.show()
+10. Access Nested column from dataframe with the help of select function. We get only properties.eye column and there records.
+      eg :- from pyspark.sql.functions import lit
+            from pyspark.sql.types import StructType, StructField, StringType, IntegerType
+            data = [('Shabdali','female',20000000,('black','brown')),('Sarvesh','male',4000000,('black','blue'))]
+            propertiesType = StructType([\ StructField('hair',StringType()),
+                                         \ StructField('eye',StringType())])
+            schema = StructType([ StructField('name',StringType()),
+                                 \ StructField('gender',StringType()),
+                                 \ StructField('salary',IntegerType()),
+                                 \ StructField('properties',propertiesType)])
+            df = spark.createDataFrame(data,schema)
+            df.select(df.properties.eye).show()
+11. Another way Access Nested column from dataframe with the help of select function. We get only properties.eye column and there records.
+    eg :- df.select(df['properties.eye']).show()
+11. Another way Access Nested column from dataframe with the help of select function. We get only properties.eye column and there records.
+    eg :- from pyspark.sql.functions import col
+          df.select(col('properties.eye')).show()
