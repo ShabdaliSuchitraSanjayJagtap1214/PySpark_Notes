@@ -456,3 +456,47 @@ Video 18. Column class in PySpark
 11. Another way Access Nested column from dataframe with the help of select function. We get only properties.eye column and there records.
     eg :- from pyspark.sql.functions import col
           df.select(col('properties.eye')).show()
+
+
+Video 19. when() & otherwise() functions in PySpark.
+                -> It is similar to SQL Case when, executes sequence of expressions until it matches the condition and returns a value when match.
+
+1. If you want to import when from the library.
+      eg :- from pyspark.sql.functions import when
+2. help() Function :- This function help us how we can write a any syntax.
+      eg :- help(when)
+3. We created dataframe.
+      eg :- data = [(1,'Shabdali','F',400000000),(2,'Sarvesh','M',100000000),(3,'Suchitra','',300000000)]
+            schema = ['id','name','gender','salary']
+            df = spark.createDataFrame(data,schema)
+            display(df)
+            df.printSchema()
+            df.show()
+4. We used when funcion and otherwise operaters to give conditions like when gender is M than print as Male and so on. It will create new column and will display.
+      eg :- from pyspark.sql.functions import when
+            df1 = df.select(df.id,df.name,when(df.gender == 'M','Male').when(df.gender == 'F','Female').otherwise('unknown'))
+            display(df1)
+            df1.printSchema()
+            df1.show()
+5. We used when funcion and otherwise operaters to give conditions like when gender is M than print as Male and so on. It will create new column and will display.
+   We used alias funcion to give a column name Gender.
+      eg :- from pyspark.sql.functions import when
+            df1 = df.select(df.id,df.name,when(df.gender == 'M','Male').when(df.gender == 'F','Female').otherwise('unknown').alias('Gender'))
+            display(df1)
+            df1.printSchema()
+            df1.show()
+6. We used when funcion and otherwise operaters to give conditions like when gender is M than print as Male and so on. It will create new column and will display.
+   We used alias funcion to give a column name Gender.
+   We splite code in multiple rows
+      eg :- from pyspark.sql.functions import when
+            df1 = df.select(df.id,df.name,\
+                when(df.gender == 'M','Male')\
+                .when(df.gender == 'F','Female')\
+                .otherwise('unknown').alias('Gender')\
+               )
+            display(df1)
+            df1.printSchema()
+            df1.show()
+
+
+
