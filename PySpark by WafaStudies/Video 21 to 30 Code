@@ -84,3 +84,6 @@ Video 22. distinct() & dropDuplicates() in PySpark
             df.dropDuplicates(['gender','salary']).show()
 
 
+Video 23. orderBy() & sort() in PySpark
+                -> You can use either sort() or orderBy() function of PySpark DataFrame to sort DataFrame by ascending or descending order based on single or multiple columns. By default, sorting will happen in ascending order. We can explicitly mention ascending or descending using asc(), desc() functions.
+
