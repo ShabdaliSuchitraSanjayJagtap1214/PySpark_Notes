@@ -1,4 +1,4 @@
-  Video 11. withColumnRenamed() usage in PySpark
+Video 11. withColumnRenamed() usage in PySpark
                 -> PySpark withColumnRenamed() is a Transformation Function of Dataframe which is used to change existing column name in Dataframe.
 ​
 1. If you want to import everything from this library and start the spark session
@@ -30,7 +30,6 @@
             display(df1)
             df1.show()
             df1.printSchema()
-
 
 
 Videp 12. StructType() and StructField() in PySpark
@@ -373,7 +372,7 @@ Video 17. Row() class in PySpark
             df.show()
 
 
-Video 18. Column class in PySpark
+Video 18. Column() class in PySpark
                 -> PySpark Column class represents a single Column in a DataFrame. pyspark.sql.
                    Column class provides several functions to work with DataFrame to manipulate the Column values, evaluate the boolean                     expression to filter rows, retrieve a value or part of a value from a DataFrame column. 
                    One of the simplest ways to create a Column class object is by using PySpark lit() SQL function.
@@ -497,6 +496,47 @@ Video 19. when() & otherwise() functions in PySpark.
             display(df1)
             df1.printSchema()
             df1.show()
+
+
+Video 20. alias(), asc(), desc(), cast() & like() functions on Columns of dataframe in PySpark.
+
+1. alias() function provide a column with another name.
+      eg :- data = [(1,'shabdali',400000000),(2,'sarvesh',100000000),(3,'suchitra',200000000)]
+            schema = ['id','name','salary']
+            df = spark.createDataFrame(data,schema)
+            df.select(df.id.alias('emp_id'),df.name.alias('emp_name'),df.salary.alias('emp_salary')).show()
+2. asc() function sorts data in ascending order.
+      eg :- data = [(1,'shabdali',400000000),(2,'sarvesh',100000000),(3,'suchitra',200000000)]
+            schema = ['id','name','salary']
+            df = spark.createDataFrame(data,schema)
+            df.sort(df.name.asc()).show()
+3. desc() function sorts data in descending order.
+      eg :- data = [(1,'shabdali',400000000),(2,'sarvesh',100000000),(3,'suchitra',200000000)]
+            schema = ['id','name','salary']
+            df = spark.createDataFrame(data,schema)
+            df.sort(df.name.desc()).show()
+4. printSchema() shows id datatype as long, name datatype as string and salary datatype as long. To change datatype we use cast() function.
+      eg :- data = [(1,'shabdali',400000000),(2,'sarvesh',100000000),(3,'suchitra',200000000)]
+            schema = ['id','name','salary']
+            df = spark.createDataFrame(data,schema)
+            df.printSchema()
+5. cast() function it helps you to convert the datatype of any column.
+   Here we convert salary datatype.
+      eg :- data = [(1,'shabdali',400000000),(2,'sarvesh',100000000),(3,'suchitra',200000000)]
+            schema = ['id','name','salary']
+            df = spark.createDataFrame(data,schema)
+            df1 = df.select(df.id,df.name,df.salary.cast('int'))
+            df1.printSchema()
+6. like() function it is similer to SQL like funcqtion. For example we can filter the dataframe which name is start with 'M'.
+      eg :- data = [(1,'shabdali',400000000),(2,'sarvesh',100000000),(3,'suchitra',200000000),(4,'sanjay',300000000)]
+            schema = ['id','name','salary']
+            df = spark.createDataFrame(data,schema)
+            df.filter(df.name.like('m%')).show()
+
+
+
+
+
 
 
 
