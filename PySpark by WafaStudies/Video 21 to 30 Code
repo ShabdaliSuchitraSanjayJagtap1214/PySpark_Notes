@@ -37,6 +37,50 @@ Video 21. filter() & where() in PySpark
             df.where((df.gender == 'male') & (df.salary == 400000000)).show()
 
 
+Video 22. distinct() & dropDuplicates() in PySpark
+                -> PySpark distinct() function is used to remove the duplicate rows (all columns).
+                -> PySpark dropDuplicates() is used to drop rows based on selected (one or multiple) columns.
+                -> So basically, using these functions we can get distinct rows.
 
+1. Created Dataframe.
+      eg :- data = [(1,'shabdali','female',400000000),(2,'sarvesh','male',100000000),(3,'suchitra','female',200000000)]
+            schema = ['id','name','gender','salary']
+            df = spark.createDataFrame(data,schema)
+            display(df)
+            df.printSchema
+            df.show()
+2. We have duplicate records here and we want to remove all duplicate records and we want only distinct records so this will happends with the help of distinct() function.
+      eg :- data = [(1,'shabdali','female',400000000),(2,'sarvesh','male',100000000),(2,'sarvesh','male',100000000),(3,'suchitra','female',200000000)]
+            schema = ['id','name','gender','salary']
+            df = spark.createDataFrame(data,schema)
+            display(df)
+            df.printSchema()
+            df.show()
+3. help(df.distinct)
+4. We have drop all duplicate records and we got all distinct records.
+   We remove all record here but what if we want to remove only one column record  so this is happend using dropDuplicates() function. 
+      eg :- data = [(1,'shabdali','female',400000000),(2,'sarvesh','male',100000000),(2,'sarvesh','male',100000000),(3,'suchitra','female',200000000)]
+            schema = ['id','name','gender','salary']
+            df = spark.createDataFrame(data,schema)
+            df.distinct().show()
+4. help(df.dropDuplicates)
+5. We remove all record here but what if we want to remove only one column record  so this is happend using dropDuplicates() function. 
+   This will apply on all columns.
+      eg :- data = [(1,'shabdali','female',400000000),(2,'sarvesh','male',100000000),(2,'sarvesh','male',100000000),(3,'suchitra','female',200000000)]
+            schema = ['id','name','gender','salary']
+            df = spark.createDataFrame(data,schema)
+            df.dropDuplicates().show()
+6. We remove all record here but what if we want to remove only one column record  so this is happend using dropDuplicates() function. 
+   This will apply only on gender column so we get only one column of male gender.
+      eg :- data = [(1,'shabdali','female',400000000),(2,'sarvesh','male',100000000),(2,'sarvesh','male',100000000),(3,'suchitra','female',200000000)]
+            schema = ['id','name','gender','salary']
+            df = spark.createDataFrame(data,schema)
+            df.dropDuplicates(['gender']).show()
+7. We remove all record here but what if we want to remove only one column record  so this is happend using dropDuplicates() function. 
+   This will apply only on 2 column.
+      eg :- data = [(1,'shabdali','female',400000000),(2,'sarvesh','male',100000000),(2,'sarvesh','male',100000000),(3,'suchitra','female',200000000)]
+            schema = ['id','name','gender','salary']
+            df = spark.createDataFrame(data,schema)
+            df.dropDuplicates(['gender','salary']).show()
 
 
