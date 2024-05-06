@@ -87,3 +87,67 @@ Video 22. distinct() & dropDuplicates() in PySpark
 Video 23. orderBy() & sort() in PySpark
                 -> You can use either sort() or orderBy() function of PySpark DataFrame to sort DataFrame by ascending or descending order based on single or multiple columns. By default, sorting will happen in ascending order. We can explicitly mention ascending or descending using asc(), desc() functions.
 
+1. Created Dataframe.
+      eg :- data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(3,'sanjay','M','CEO')]
+            schema = ['id','name','gender','salary','dep']
+            df = spark.createDataFrame(data,schema)
+            display(df)
+            df.printSchema
+            df.show()
+2. help(df.sort)
+3. We used sort function to sort dep column and by default it will sort in ascending order.
+      eg :- data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(3,'sanjay','M','CEO')]
+            schema = ['id','name','gender','salary','dep']
+            df = spark.createDataFrame(data,schema)
+            df.sort('dep').show()
+4. Another way to used sort function to sort dep column and by default it will sort in ascending order.
+      eg :- data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(3,'sanjay','M','CEO')]
+            schema = ['id','name','gender','salary','dep']
+            df = spark.createDataFrame(data,schema)
+            df.sort(df.dep).show()
+5. If we want to sort multiple columns using sort function to sort dep & id column and by default it will sort in ascending order.
+      eg :- data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(3,'sanjay','M','CEO')]
+            schema = ['id','name','gender','salary','dep']
+            df = spark.createDataFrame(data,schema)
+            df.sort(df.dep,df.id).show()
+6. If we want to sort multiple columns using sort function to sort dep in ascending order & id in descending order.
+      eg :- data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(3,'sanjay','M','CEO')]
+            schema = ['id','name','gender','salary','dep']
+            df = spark.createDataFrame(data,schema)
+            df.sort(df.dep,df.id.desc()).show()
+7. If we want to sort multiple columns using sort function to sort dep & id column and by default it will sort in ascending order.
+      eg :-  data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(3,'sanjay','M','CEO')]
+            schema = ['id','name','gender','salary','dep']
+            df = spark.createDataFrame(data,schema)
+            df.sort(df.dep.desc(),df.id.desc()).show()
+8. We used orderBy function to sort dep column and by default it will sort in ascending order.
+      eg :- data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(3,'sanjay','M','CEO')]
+            schema = ['id','name','gender','salary','dep']
+            df = spark.createDataFrame(data,schema)
+            df.orderBy(df.dep).show()
+9. We used both sort function and orderBy function to sort dep column and by default it will sort in ascending order.
+      eg :- data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(3,'sanjay','M','CEO')]
+            schema = ['id','name','gender','salary','dep']
+            df = spark.createDataFrame(data,schema)
+            df.sort(df.dep).show()
+            df.orderBy(df.dep).show()
+10. We used both sort function and orderBy function to sort dep column and id column.
+      eg :- data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(3,'sanjay','M','CEO')]
+            schema = ['id','name','gender','salary','dep']
+            df = spark.createDataFrame(data,schema)
+            df.sort(df.dep.desc(),df.id.desc()).show()
+            df.orderBy(df.dep.asc(),df.id.asc()).show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
