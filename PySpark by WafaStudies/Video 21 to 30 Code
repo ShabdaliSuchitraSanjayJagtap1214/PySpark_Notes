@@ -88,7 +88,7 @@ Video 23. orderBy() & sort() in PySpark
                 -> You can use either sort() or orderBy() function of PySpark DataFrame to sort DataFrame by ascending or descending order based on single or multiple columns. By default, sorting will happen in ascending order. We can explicitly mention ascending or descending using asc(), desc() functions.
 
 1. Created Dataframe.
-      eg :- data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(3,'sanjay','M','CEO')]
+      eg :- data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(4,'sanjay','M','CEO')]
             schema = ['id','name','gender','salary','dep']
             df = spark.createDataFrame(data,schema)
             display(df)
@@ -96,49 +96,133 @@ Video 23. orderBy() & sort() in PySpark
             df.show()
 2. help(df.sort)
 3. We used sort function to sort dep column and by default it will sort in ascending order.
-      eg :- data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(3,'sanjay','M','CEO')]
+      eg :- data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(4,'sanjay','M','CEO')]
             schema = ['id','name','gender','salary','dep']
             df = spark.createDataFrame(data,schema)
             df.sort('dep').show()
 4. Another way to used sort function to sort dep column and by default it will sort in ascending order.
-      eg :- data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(3,'sanjay','M','CEO')]
+      eg :- data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(4,'sanjay','M','CEO')]
             schema = ['id','name','gender','salary','dep']
             df = spark.createDataFrame(data,schema)
             df.sort(df.dep).show()
 5. If we want to sort multiple columns using sort function to sort dep & id column and by default it will sort in ascending order.
-      eg :- data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(3,'sanjay','M','CEO')]
+      eg :- data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(4,'sanjay','M','CEO')]
             schema = ['id','name','gender','salary','dep']
             df = spark.createDataFrame(data,schema)
             df.sort(df.dep,df.id).show()
 6. If we want to sort multiple columns using sort function to sort dep in ascending order & id in descending order.
-      eg :- data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(3,'sanjay','M','CEO')]
+      eg :- data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(4,'sanjay','M','CEO')]
             schema = ['id','name','gender','salary','dep']
             df = spark.createDataFrame(data,schema)
             df.sort(df.dep,df.id.desc()).show()
 7. If we want to sort multiple columns using sort function to sort dep & id column and by default it will sort in ascending order.
-      eg :-  data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(3,'sanjay','M','CEO')]
+      eg :-  data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(4,'sanjay','M','CEO')]
             schema = ['id','name','gender','salary','dep']
             df = spark.createDataFrame(data,schema)
             df.sort(df.dep.desc(),df.id.desc()).show()
 8. We used orderBy function to sort dep column and by default it will sort in ascending order.
-      eg :- data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(3,'sanjay','M','CEO')]
+      eg :- data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(4,'sanjay','M','CEO')]
             schema = ['id','name','gender','salary','dep']
             df = spark.createDataFrame(data,schema)
             df.orderBy(df.dep).show()
 9. We used both sort function and orderBy function to sort dep column and by default it will sort in ascending order.
-      eg :- data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(3,'sanjay','M','CEO')]
+      eg :- data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(4,'sanjay','M','CEO')]
             schema = ['id','name','gender','salary','dep']
             df = spark.createDataFrame(data,schema)
             df.sort(df.dep).show()
             df.orderBy(df.dep).show()
 10. We used both sort function and orderBy function to sort dep column and id column.
-      eg :- data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(3,'sanjay','M','CEO')]
+      eg :- data = [(1,'shabdali','F',400000000,'Comp'),(2,'sarvesh','M',100000000,'Mech'),(3,'suchitra','F','HR'),(4,'sanjay','M','CEO')]
             schema = ['id','name','gender','salary','dep']
             df = spark.createDataFrame(data,schema)
             df.sort(df.dep.desc(),df.id.desc()).show()
             df.orderBy(df.dep.asc(),df.id.asc()).show()
 
 
+Video 24. union() & unionAll() in PySpark
+                -> union() and unionAll() transformations are used to merge two or more DataFrame's of the same schema or structure.
+                -> union() & unionAll() method merges two DataFrames and returns the new DataFrame with all rows from two Dataframes regardless of duplicate data. 
+                -> To remove duplicates use distinct() function.
+
+1. Created 2 Dataframes. 
+      eg :- data1 = [(1,'shabdali','Female'),(2,'sarvesh','Male')]
+            schema1 = ['id','name','gender']
+            data2 = [(3,'suchitra','Female'),(4,'sanjay','Male')]
+            schema2 = ['id','name','gender']        
+            df1 = spark.createDataFrame(data1,schema1)
+            df2 = spark.createDataFrame(data2,schema2)
+            display(df1)
+            df1.printSchema
+            df1.show()
+            display(df2)
+            df2.printSchema
+            df2.show()
+            df2.show()
+2. Using union() function we can merge two dataframes together.
+      eg :- data1 = [(1,'shabdali','Female'),(2,'sarvesh','Male')]
+            schema1 = ['id','name','gender']
+            data2 = [(3,'suchitra','Female'),(4,'sanjay','Male')]
+            schema2 = ['id','name','gender']
+            df1 = spark.createDataFrame(data1,schema1)
+            df2 = spark.createDataFrame(data2,schema2)
+            display(df1)
+            df1.printSchema
+            df1.show()
+            display(df2)
+            df2.printSchema
+            df2.show()
+            newDf = df1.union(df2)
+            newDf.show()
+3. Using union() function we can merge two dataframes together.
+   We have duplicate records in dataframe but we can not remove duplicate records by using union() function we have to used distinct() & dropDuplicates() function only to remove duplicate records.
+   But in SQL with the help of union() function we can remove duplicate records but not possible in PySpark.
+      eg :- data1 = [(1,'shabdali','Female'),(2,'sarvesh','Male')]
+            schema1 = ['id','name','gender']
+            data2 = [(1,'shabdali','Female'),(3,'suchitra','Female'),(4,'sanjay','Male')]
+            schema2 = ['id','name','gender']
+            df1 = spark.createDataFrame(data1,schema1)
+            df2 = spark.createDataFrame(data2,schema2)
+            display(df1)
+            df1.printSchema
+            df1.show()
+            display(df2)
+            df2.printSchema
+            df2.show()
+            newDf = df1.union(df2)
+            newDf.show()
+4. Using unionAll() function we can merge two dataframes together.
+   We have duplicate records in dataframe but we can not remove duplicate records by using unionAll() function we have to used distinct() & dropDuplicates() function only to remove duplicate records.
+   union() and unionAll() functions are same.
+      eg :- data1 = [(1,'shabdali','Female'),(2,'sarvesh','Male')]
+            schema1 = ['id','name','gender']
+            data2 = [(1,'shabdali','Female'),(3,'suchitra','Female'),(4,'sanjay','Male')]
+            schema2 = ['id','name','gender']         
+            df1 = spark.createDataFrame(data1,schema1)
+            df2 = spark.createDataFrame(data2,schema2)
+            display(df1)
+            df1.printSchema
+            df1.show()
+            display(df2)
+            df2.printSchema
+            df2.show()
+            newDf = df1.unionAll(df2)
+            newDf.show()
+5. help(df1.union)
+6. We used distinct function here to remove duplicate records.
+eg :- data1 = [(1,'shabdali','Female'),(2,'sarvesh','Male')]
+            schema1 = ['id','name','gender']
+            data2 = [(1,'shabdali','Female'),(3,'suchitra','Female'),(4,'sanjay','Male')]
+            schema2 = ['id','name','gender']         
+            df1 = spark.createDataFrame(data1,schema1)
+            df2 = spark.createDataFrame(data2,schema2)
+            display(df1)
+            df1.printSchema
+            df1.show()
+            display(df2)
+            df2.printSchema
+            df2.show()
+            newDf = df1.unionAll(df2)
+            newDf.distinct.show()
 
 
 
