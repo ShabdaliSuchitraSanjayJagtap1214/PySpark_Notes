@@ -225,8 +225,19 @@ eg :- data1 = [(1,'shabdali','Female'),(2,'sarvesh','Male')]
             newDf.distinct.show()
 
 
-
-
+Video 25. groupBy() in PySpark
+                -> Similar to SQL GROUP BY clause, PySpark groupBy() function is used to collect the identical data into groups on DataFrame and perform count,sum, avg, min, max functions on the grouped data.
+1. Creating Dataframe.
+      eg :- data = [(1,'shabdali','F',70000000,'Comp'),\
+                    (2,'suchitra','F',60000000,'Mech'),\
+                    (3,'Sarvesh','M',50000000,'Mech'),\
+                    (4,'Sanjay','M',40000000,'CEO'),\
+                    (5,'Ajay','M',30000000,'IT'),\
+                    (6,'Sindu','F',20000000,'HR'),\
+                    (7,'Vishnu','M',10000000,'IT')]
+            schema = ['id','name','gender','salary','dep']
+            df = spark.createDataFrame(data,schema)
+            df.show()
 
 
 
