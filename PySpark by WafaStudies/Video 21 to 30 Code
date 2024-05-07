@@ -360,3 +360,57 @@ Video 26. GroupBy agg() function in PySpark
                                   min('salary').alias('minSal'),\
                                   max('salary').alias('maxSal')).show()
 
+
+Video 27. unionByName() function in PySpark
+                -> unionByName() lets you to merge/union 2 DataFrames with a different number of columns (different schema) by passing allowMissingColumns with the value true.
+                -> As we know union() & unionAll()  merge the 2 dataframe where the schema is same. Actually union() & unionAll() merge the data on column index that means column position.
+                -> Where as unionByName() merge the data on column names.
+
+1. Created 2 Dataframes.
+      eg :- data1 = [(1,'shabdali','26')]
+            schema1 = ['id','name','age']
+            data2 = [(2,'sarvesh',20000000)]
+            schema2 = ['id','name','salary']      
+            df1 = spark.createDataFrame(data1,schema1)
+            df2 = spark.createDataFrame(data2,schema2)
+            display(df1)
+            df1.printSchema
+            df1.show()
+            display(df2)
+            df2.printSchema
+            df2.show()
+2. Thow the column name is different than also with the help of union function we can merge the column because it merge schema on column indexs.
+      eg :- data1 = [(1,'shabdali','26')]
+            schema1 = ['id','name','age']
+            data2 = [(2,'sarvesh',20000000)]
+            schema2 = ['id','name','salary']         
+            df1 = spark.createDataFrame(data1,schema1)
+            df2 = spark.createDataFrame(data2,schema2)
+            df1.show()
+            df2.show()
+            df1.union(df2).show()
+3. The column name is different by using unionByName function we can not merge the column because it merge schema on column names and column names are different.
+   We got an error we can solve that error by using allowMissingColumns function.
+      eg :- data1 = [(1,'shabdali','26')]
+            schema1 = ['id','name','age']
+            data2 = [(2,'sarvesh',20000000)]
+            schema2 = ['id','name','salary']         
+            df1 = spark.createDataFrame(data1,schema1)
+            df2 = spark.createDataFrame(data2,schema2)
+            df1.show()
+            df2.show()
+            df1.unionByName(df2).show()
+4. The column name is different by using unionByName function we can not merge the column because it merge schema on column names and column names are different.
+   By passing allowMissingColumns function we had solve the error and can merge all the columns.
+eg :- data1 = [(1,'shabdali','26')]
+            schema1 = ['id','name','age']
+            data2 = [(2,'sarvesh',20000000)]
+            schema2 = ['id','name','salary']         
+            df1 = spark.createDataFrame(data1,schema1)
+            df2 = spark.createDataFrame(data2,schema2)
+            df1.show()
+            df2.show()
+            df1.unionByName(df2, allowMissingColumns = True).show()
+
+
+
