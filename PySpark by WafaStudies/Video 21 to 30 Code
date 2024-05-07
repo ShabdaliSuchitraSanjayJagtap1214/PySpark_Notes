@@ -262,7 +262,19 @@ Video 25. groupBy count(),min(),max() in PySpark
             df = spark.createDataFrame(data,schema)
             df1 = df.groupBy('dep').count()
             df1.show()
-4. We get new column name min(salary) and get a min salary on dep column where Comp has 70000000 salary, Mech has 50000000 salary, etc.
+4. We get new columns and get min data of every columns.
+      eg :- data = [(1,'shabdali','F',70000000,'Comp'),\
+                    (2,'suchitra','F',60000000,'Mech'),\
+                    (3,'Sarvesh','M',50000000,'Mech'),\
+                    (4,'Sanjay','M',40000000,'CEO'),\
+                    (5,'Ajay','M',30000000,'IT'),\
+                    (6,'Sindu','F',20000000,'HR'),\
+                    (7,'Vishnu','M',10000000,'IT')]
+            schema = ['id','name','gender','salary','dep']
+            df = spark.createDataFrame(data,schema)
+            df.show()
+            df.groupBy('dep').min().show()
+5. We get new column name min(salary) and get a min salary on dep column where Comp has 70000000 salary, Mech has 50000000 salary, etc.
       eg :- data = [(1,'shabdali','F',70000000,'Comp'),\
                     (2,'suchitra','F',60000000,'Mech'),\
                     (3,'Sarvesh','M',50000000,'Mech'),\
@@ -274,7 +286,7 @@ Video 25. groupBy count(),min(),max() in PySpark
             df = spark.createDataFrame(data,schema)
             df1 = df.groupBy('dep').min('salary')
             df1.show()
-5. We get new column name max(salary) and get a max salary on dep column where Comp has 70000000 salary, Mech has 60000000 salary, etc.
+6. We get new column name max(salary) and get a max salary on dep column where Comp has 70000000 salary, Mech has 60000000 salary, etc.
       eg :- data = [(1,'shabdali','F',70000000,'Comp'),\
                     (2,'suchitra','F',60000000,'Mech'),\
                     (3,'Sarvesh','M',50000000,'Mech'),\
@@ -286,7 +298,7 @@ Video 25. groupBy count(),min(),max() in PySpark
             df = spark.createDataFrame(data,schema)
             df1 = df.groupBy('dep').max('salary')
             df1.show()
-6. We get new column name count and get a count on gender column where Comp has 1 female emp count, Mech has 1 male and 1 female emp, etc.
+7. We get new column name count and get a count on gender column where Comp has 1 female emp count, Mech has 1 male and 1 female emp, etc.
       eg :- data = [(1,'shabdali','F',70000000,'Comp'),\
                     (2,'suchitra','F',60000000,'Mech'),\
                     (3,'Sarvesh','M',50000000,'Mech'),\
@@ -300,6 +312,51 @@ Video 25. groupBy count(),min(),max() in PySpark
             df1.show()
 
 
+Video 26. GroupBy agg() function in PySpark
+                -> PySpark Groupby agg() is used to calculate more than one aggregate (multiple aggregates) at a time on grouped DataFrame.
 
-
+1. Creating Dataframe.
+      eg :- data = [(1,'shabdali','F',70000000,'Comp'),\
+                    (2,'suchitra','F',60000000,'Mech'),\
+                    (3,'Sarvesh','M',50000000,'Mech'),\
+                    (4,'Sanjay','M',40000000,'CEO'),\
+                    (5,'Ajay','M',30000000,'IT'),\
+                    (6,'Sindu','F',20000000,'HR'),\
+                    (7,'Vishnu','M',10000000,'IT')]
+            schema = ['id','name','gender','salary','dep']
+            df = spark.createDataFrame(data,schema)
+            df.show()
+2. help(df.groupBy('dep').agg)
+3. from pyspark.sql.functions import count,min,max
+   help(count)
+4. If we want to apply all the functions like count, min, max on single dataframe than we used Aggregate Function.
+   Here we had apply groupBy on dep column and used only one aggregate function.
+      eg :- data = [(1,'shabdali','F',70000000,'Comp'),\
+                    (2,'suchitra','F',60000000,'Mech'),\
+                    (3,'Sarvesh','M',50000000,'Mech'),\
+                    (4,'Sanjay','M',40000000,'CEO'),\
+                    (5,'Ajay','M',30000000,'IT'),\
+                    (6,'Sindu','F',20000000,'HR'),\
+                    (7,'Vishnu','M',10000000,'IT')]
+            schema = ['id','name','gender','salary','dep']
+            df = spark.createDataFrame(data,schema)
+            df.show()
+            from pyspark.sql.functions import count,min,max
+            df.groupBy('dep').agg(count('*').alias('countOfEmps')).show()
+5. If we want to apply all the functions like count, min, max on single dataframe than we used Aggregate Function.
+   Here we had apply groupBy on dep column and used 3 aggregate function.
+      eg :- data = [(1,'shabdali','F',70000000,'Comp'),\
+                    (2,'suchitra','F',60000000,'Mech'),\
+                    (3,'Sarvesh','M',50000000,'Mech'),\
+                    (4,'Sanjay','M',40000000,'CEO'),\
+                    (5,'Ajay','M',30000000,'IT'),\
+                    (6,'Sindu','F',20000000,'HR'),\
+                    (7,'Vishnu','M',10000000,'IT')]
+            schema = ['id','name','gender','salary','dep']
+            df = spark.createDataFrame(data,schema)
+            df.show()
+            from pyspark.sql.functions import count,min,max
+            df.groupBy('dep').agg(count('*').alias('countOfEmps'),\
+                                  min('salary').alias('minSal'),\
+                                  max('salary').alias('maxSal')).show()
 
