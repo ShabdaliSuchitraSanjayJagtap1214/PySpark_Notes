@@ -462,3 +462,15 @@ Video 28. select() function in PySpark
             schema = ['id','name','gender','salary']
             df = spark.createDataFrame(data,schema)
             df.select([col for col in df.columns]).show()
+
+
+Video 29. join() inner, left, right, full Joins function in PySpark  
+                -> join() is like SQL JOIN. We can combine columns from different DataFrames based on condition. It supports all basic join types such as INNER, LEFT OUTER, RIGHT OUTER, LEFT ANTI, LEFT SEMI, CROSS, SELF.
+
+
+
+
+
+
+
+
