@@ -402,7 +402,7 @@ Video 27. unionByName() function in PySpark
             df1.unionByName(df2).show()
 4. The column name is different by using unionByName function we can not merge the column because it merge schema on column names and column names are different.
    By passing allowMissingColumns function we had solve the error and can merge all the columns.
-eg :- data1 = [(1,'shabdali','26')]
+      eg :- data1 = [(1,'shabdali','26')]
             schema1 = ['id','name','age']
             data2 = [(2,'sarvesh',20000000)]
             schema2 = ['id','name','salary']         
@@ -413,4 +413,52 @@ eg :- data1 = [(1,'shabdali','26')]
             df1.unionByName(df2, allowMissingColumns = True).show()
 
 
+Video 28. select() function in PySpark
+                -> select() function is used to select single, multiple, column by index, all columns from the list and the nested columns from a DataFrame.
 
+1. Created Dataframes.
+      eg :- data = [(1,'shabdali','Female',300000000)]
+            schema = ['id','name','gender','salary']
+            df = spark.createDataFrame(data,schema)
+            display(df)
+            df.printSchema
+            df.show()
+2. help(df.select)
+3. If we want to show only 2 columns than we used select() function.
+      eg :- data = [(1,'shabdali','Female',300000000)]
+            schema = ['id','name','gender','salary']
+            df = spark.createDataFrame(data,schema)
+            df.select('id','name').show()
+4. Another way if we want to show only 2 columns than we used select() function.
+      eg :- data = [(1,'shabdali','Female',300000000)]
+            schema = ['id','name','gender','salary']
+            df = spark.createDataFrame(data,schema)
+            df.select(df.id,df.name).show()
+5. Another way if we want to show only 2 columns than we used select() function.
+      eg :- data = [(1,'shabdali','Female',300000000)]
+            schema = ['id','name','gender','salary']
+            df = spark.createDataFrame(data,schema)
+            df.select(df['id'],df['name']).show()
+6. Another way if we want to show only 2 columns than we used select() function.
+   With the help of col function also we can show 2 columns.
+      eg :- from pyspark.sql.functions import col
+            data = [(1,'shabdali','Female',300000000)]
+            schema = ['id','name','gender','salary']
+            df = spark.createDataFrame(data,schema)
+            df.select(col('id'),col('name')).show()
+7. Another way if we want to show only 2 columns than we used select() function.
+   In the list formate.
+      eg :- data = [(1,'shabdali','Female',300000000)]
+            schema = ['id','name','gender','salary']
+            df = spark.createDataFrame(data,schema)
+            df.select(['id','name']).show()
+8. Want to select all columns we can use '*'.
+       eg :- data = [(1,'shabdali','Female',300000000)]
+            schema = ['id','name','gender','salary']
+            df = spark.createDataFrame(data,schema)
+            df.select('*').show()
+9. If we want to show all the columns using for loop in list formate.
+      eg :- data = [(1,'shabdali','Female',300000000)]
+            schema = ['id','name','gender','salary']
+            df = spark.createDataFrame(data,schema)
+            df.select([col for col in df.columns]).show()
