@@ -1,6 +1,6 @@
 PYSPARK Syllabus by DurgaSoft
 
-I ) PYSPARK INTRODUCTION
+[I] PYSPARK INTRODUCTION
         What is Apache Spark?
         Why Pyspark?
         Need for pyspark
@@ -16,8 +16,8 @@ I ) PYSPARK INTRODUCTION
         PySpark – Broadcast Variables
         PySpark – Accumulator
 
-II) PYSPARK - RDD COMPUTATION
-        Operations on a RDD
+[II] PYSPARK - RDD COMPUTATION
+        1. Operations on a RDD
         Direct Acyclic Graph (DAG)
         RDD Actions and Transformations
         RDD computation
@@ -25,14 +25,14 @@ II) PYSPARK - RDD COMPUTATION
         RDD persistence
         Persistence features
 
-II) PERSISTENCE Options:
+[III] PERSISTENCE Options:
         1) MEMORY_ONLY
         2) MEMORY_SER_ONLY
         3) DISK_ONLY
         4) DISK_SER_ONLY
         5) MEMORY_AND_DISK_ONLY
 
-III) PYSPARK - CORE COMPUTING
+ [IV] PYSPARK - CORE COMPUTING
         Fault Tolerence model in spark
         Different ways of creating a RDD
         Word Count Example
@@ -41,7 +41,7 @@ III) PYSPARK - CORE COMPUTING
         Aggregations Over Structured Data:
         reduceByKey()
 
-IV) GROUPINGS AND AGGREGATIONS
+ [V] GROUPINGS AND AGGREGATIONS
         i) Single Grouping and Single Aggregation
         ii) Single Grouping and multiple Aggregation
         iii) multi Grouping and Single Aggregation
@@ -53,7 +53,7 @@ IV) GROUPINGS AND AGGREGATIONS
         Various Transformations
         Various Built-in Functions
 
-V) Various Actions and Transformations:
+[VI] Various Actions and Transformations:
         countByKey()
         countByValue()
         sortByKey()
@@ -68,7 +68,7 @@ V) Various Actions and Transformations:
         Cogroup()
         Other actions and transformations
 
-VI) PySpark SQL - DataFrame
+ [VII] PySpark SQL - DataFrame
         Introduction
         Making data Structured
         Case Classes
@@ -110,14 +110,14 @@ VI) PySpark SQL - DataFrame
         PySpark – ArrayType Column (Array)
         PySpark – MapType (Map/Dict)
 
-VII) PySpark SQL Functions
+ [VIII] PySpark SQL Functions
         PySpark – Aggregate Functions
         PySpark – Window Functions
         PySpark – Date and Timestamp Functions
         PySpark – JSON Functions
         PySpark – Read & Write JSON file
 
-VIII) PySpark Built-In Functions
+ [IX] PySpark Built-In Functions
         PySpark – when()
         PySpark – expr()
         PySpark – lit()
@@ -155,7 +155,7 @@ VIII) PySpark Built-In Functions
         PySpark – schema_of_json()
         Working Examples
 
-IX) Pyspark External Sources
+ [X] Pyspark External Sources
         Working with sql statements
         Spark and Hive Integration
         Spark and mysql Integration
@@ -171,11 +171,11 @@ IX) Pyspark External Sources
         Writing data back to External sources
         Creation of tables fromDataframes (Internal tables, Temporary tables)
 
-X) DEPLOYMENT MODES
+[XI] DEPLOYMENT MODES
         Local Mode
         Cluster Modes(Standalone , YARN
 
-XI) PYSPARK APLLICATION
+[XII] PYSPARK APLLICATION
         Stages and Tasks
         Driver and Executor
         Building spark applications/pipelines
