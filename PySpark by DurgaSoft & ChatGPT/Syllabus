@@ -1,0 +1,185 @@
+PYSPARK Syllabus Syllabus
+
+I ) PYSPARK INTRODUCTION
+        What is Apache Spark?
+        Why Pyspark?
+        Need for pyspark
+        spark Python Vs Scala
+        pyspark features
+        Real-life usage of PySpark
+        PySpark Web/Application
+        PySpark - SparkSession
+        PySpark – SparkContext
+        PySpark – RDD
+        PySpark – Parallelize
+        PySpark – repartition() vs coalesce()
+        PySpark – Broadcast Variables
+        PySpark – Accumulator
+
+II) PYSPARK - RDD COMPUTATION
+        Operations on a RDD
+        Direct Acyclic Graph (DAG)
+        RDD Actions and Transformations
+        RDD computation
+        Steps in RDD computation
+        RDD persistence
+        Persistence features
+
+II) PERSISTENCE Options:
+        1) MEMORY_ONLY
+        2) MEMORY_SER_ONLY
+        3) DISK_ONLY
+        4) DISK_SER_ONLY
+        5) MEMORY_AND_DISK_ONLY
+
+III) PYSPARK - CORE COMPUTING
+        Fault Tolerence model in spark
+        Different ways of creating a RDD
+        Word Count Example
+        Creating spark objects(RDDs) from Scala Objects(lists).
+        Increasing the no of partitons
+        Aggregations Over Structured Data:
+        reduceByKey()
+
+IV) GROUPINGS AND AGGREGATIONS
+        i) Single Grouping and Single Aggregation
+        ii) Single Grouping and multiple Aggregation
+        iii) multi Grouping and Single Aggregation
+        iv) Multi Grouping and Multi Aggregation
+        Differences b/w reduceByKey() and groupByKey()
+        Process of groupByKey
+        Process of reduceByKey
+        Reduce() function
+        Various Transformations
+        Various Built-in Functions
+
+V) Various Actions and Transformations:
+        countByKey()
+        countByValue()
+        sortByKey()
+        zip()
+        Union()
+        Distinct()
+        Various count aggregation
+        Joins
+        -inner join
+        -outer join
+        Cartesian()
+        Cogroup()
+        Other actions and transformations
+
+VI) PySpark SQL - DataFrame
+        Introduction
+        Making data Structured
+        Case Classes
+        ways to extract case class objects
+        1) using function
+        2) using map with multiple exressions
+        3) using map with single expression
+        Sql Context
+        Data Frames API
+        DataSet API
+        RDD vs DataFrame vs DataSet
+        PySpark – Create a DataFrame
+        PySpark – Create an empty DataFrame
+        PySpark – Convert RDD to DataFrame
+        PySpark – Convert DataFrame to Pandas
+        PySpark – show()
+        PySpark – StructType & StructField
+        PySpark – Row Class
+        PySpark – Column Class
+        PySpark – select()
+        PySpark – collect()
+        PySpark – withColumn()
+        PySpark – withColumnRenamed()
+        PySpark – where() & filter()
+        PySpark – drop() & dropDuplicates()
+        PySpark – orderBy() and sort()
+        PySpark – groupBy()
+        PySpark – join()
+        PySpark – union() & unionAll()
+        PySpark – unionByName()
+        PySpark – UDF (User Defined Function)
+        PySpark – map()
+        PySpark – flatMap()
+        pyspark – foreach()
+        PySpark – sample() vs sampleBy()
+        PySpark – fillna() & fill()
+        PySpark – pivot() (Row to Column)
+        PySpark – partitionBy()
+        PySpark – ArrayType Column (Array)
+        PySpark – MapType (Map/Dict)
+
+VII) PySpark SQL Functions
+        PySpark – Aggregate Functions
+        PySpark – Window Functions
+        PySpark – Date and Timestamp Functions
+        PySpark – JSON Functions
+        PySpark – Read & Write JSON file
+
+VIII) PySpark Built-In Functions
+        PySpark – when()
+        PySpark – expr()
+        PySpark – lit()
+        PySpark – split()
+        PySpark – concat_ws()
+        Pyspark – substring()
+        PySpark – translate()
+        PySpark – regexp_replace()
+        PySpark – overlay()
+        PySpark – to_timestamp()
+        PySpark – to_date()
+        PySpark – date_format()
+        PySpark – datediff()
+        PySpark – months_between()
+        PySpark – explode()
+        PySpark – array_contains()
+        PySpark – array()
+        PySpark – collect_list()
+        PySpark – collect_set()
+        PySpark – create_map()
+        PySpark – map_keys()
+        PySpark – map_values()
+        PySpark – struct()
+        PySpark – countDistinct()
+        PySpark – sum(), avg()
+        PySpark – row_number()
+        PySpark – rank()
+        PySpark – dense_rank()
+        PySpark – percent_rank()
+        PySpark – typedLit()
+        PySpark – from_json()
+        PySpark – to_json()
+        PySpark – json_tuple()
+        PySpark – get_json_object()
+        PySpark – schema_of_json()
+        Working Examples
+
+IX) Pyspark External Sources
+        Working with sql statements
+        Spark and Hive Integration
+        Spark and mysql Integration
+        Working with CSV
+        Working with JSON
+        Transformations and actions on dataframes
+        Narrow, wide transformations
+        Addition of new columns, dropping of columns ,renaming columns
+        Addition of new rows, dropping rows
+        Handling nulls
+        Joins
+        Window function
+        Writing data back to External sources
+        Creation of tables fromDataframes (Internal tables, Temporary tables)
+
+X) DEPLOYMENT MODES
+        Local Mode
+        Cluster Modes(Standalone , YARN
+
+XI) PYSPARK APLLICATION
+        Stages and Tasks
+        Driver and Executor
+        Building spark applications/pipelines
+        Deploying spark apps to cluster and tuning
+        Performance tuning
+
+
