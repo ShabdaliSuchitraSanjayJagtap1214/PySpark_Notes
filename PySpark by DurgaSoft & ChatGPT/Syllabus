@@ -18,12 +18,12 @@ PYSPARK Syllabus by DurgaSoft
 
 [II] PYSPARK - RDD COMPUTATION
         1. Operations on a RDD
-        Direct Acyclic Graph (DAG)
-        RDD Actions and Transformations
-        RDD computation
-        Steps in RDD computation
-        RDD persistence
-        Persistence features
+        2. Direct Acyclic Graph (DAG)
+        3. RDD Actions and Transformations
+        4. RDD computation
+        5. Steps in RDD computation
+        6. RDD persistence
+        7. Persistence features
 
 [III] PERSISTENCE Options:
         1) MEMORY_ONLY
@@ -156,20 +156,20 @@ PYSPARK Syllabus by DurgaSoft
         Working Examples
 
  [X] Pyspark External Sources
-        Working with sql statements
-        Spark and Hive Integration
-        Spark and mysql Integration
-        Working with CSV
-        Working with JSON
-        Transformations and actions on dataframes
-        Narrow, wide transformations
-        Addition of new columns, dropping of columns ,renaming columns
-        Addition of new rows, dropping rows
-        Handling nulls
-        Joins
-        Window function
-        Writing data back to External sources
-        Creation of tables fromDataframes (Internal tables, Temporary tables)
+        1. Working with sql statements
+        2. Spark and Hive Integration
+        3. Spark and mysql Integration
+        4. Working with CSV
+        5. Working with JSON
+        6. Transformations and actions on dataframes
+        7. Narrow, wide transformations
+        8. Addition of new columns, dropping of columns ,renaming columns
+        9. Addition of new rows, dropping rows
+        10. Handling nulls
+        11. Joins
+        12. Window function
+        13. Writing data back to External sources
+        14. Creation of tables fromDataframes (Internal tables, Temporary tables)
 
 [XI] DEPLOYMENT MODES
         Local Mode
